@@ -1,0 +1,121 @@
+ Implementation of Queue using array.
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#define MAXQ 100
+int front=0, rear=-1;
+int items[MAXQ];
+int Isempty();
+int Isfull();
+void Insert(int);
+int Delete();
+void display();
+void main()
+{
+int x;
+int delete;
+char ch ='1'i
+clrscr();
+while (ch!='4')
+{
+printf("\n1-INSERT");
+printf("\n2-DELETED");
+printf("\n3-DISPLAY");
+printf("\n4-QUIT");
+printf("\n Enter your choice:");
+ch=getchar();
+switch(ch)
+{
+case '1':
+printf("\n Enter the element to be inserted:");
+scanf("%d",&x);
+Insert(x);
+break;
+case '2':
+x= Delete();
+printf("\n Delete element is %d\n:",x);
+break;
+case '3':
+Display();
+break;
+case '4':
+break;
+default;
+printf("\n Wrong choice! Try again:");
+}
+}
+getch();
+}
+int Isempty()
+{
+if Isempty()
+{
+if(rear<front)
+return 1;
+else
+return 0;
+}
+int Isfull()
+{
+if (rear==MAXQ-1)
+return 1;
+else
+return 0;
+}
+void Insert(intx)
+{
+if(Isfull())
+{
+printf("\n Queue full");
+return;
+}
+rear++;
+items[rear]=x;
+}
+int Delete()
+{
+intx;
+if (Isempty())
+printf("\n Queue is empty");
+exit(0);
+}
+x=items[front];
+front++;
+rear x;
+}
+void Display()
+{
+int i;
+if(Isempty())
+{
+printf("\n Elements in the Queue are:\n");
+for(i=front;i<=rear;i++)
+printf("%d\n",items[i]);
+}
+  Output:
+
+1-INSERT                                                                        
+2-DELETED                                                                       
+3-DISPLAY                                                                       
+4-QUIT                                                                          
+ Enter your choice:1                                                            
+                                                                                
+ Enter the element to be inserted:24                                            
+                                                                                
+1-INSERT                                                                        
+2-DELETED                                                                       
+3-DISPLAY                                                                       
+4-QUIT                                                                          
+ Enter your choice:4                                                            
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
