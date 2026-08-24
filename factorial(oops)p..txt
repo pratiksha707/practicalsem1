@@ -1,0 +1,49 @@
+ Calculate Factorial of a number using recursive function.
+
+
+#include<stdio.h>
+#include<conio.h>
+int Factorial(int);
+void main()
+{
+int i,n;
+clrscr();
+printf("\n Enter the no. of elements:");
+scanf("%d", &n);
+printf("Factorial of %d is %d", n, Factorial(n));
+getch();
+}
+int Factorial(int n)
+{
+if(n==0)
+return 1;
+else
+return n*Factorial(n-1);
+}
+
+Output:
+
+ Enter the no. of elements:5                                                    
+Factorial of 5 is 120                                                           
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
