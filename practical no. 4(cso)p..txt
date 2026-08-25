@@ -1,0 +1,81 @@
+4. Implement a C program to perform Multiplication of two binary numbers (signed) using Booth’s Algorithms.
+
+
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+int m,q,a,q_1,cycle,combined,final_combined;
+clrscr();
+printf("Enter decimal Multiplicand(Signed):");
+if(scanf("%d",&m)!=1)return 1;
+printf("Enter decimal(Signed):");
+if(scanf("%d",&q)!=1)return 1;
+m=m&0xFF;
+q=q& 0xFF;
+a=0;
+q_1=0;
+printf("\n%-6s|%-8s|%-8s|%-4s\n","Cycle","A(Hex)","Q(Hex)","Q-1");
+printf("------------\n");
+printf("%6s|0x%02X |0x%02X |%-4d\n","Init",a,q,q_1);
+for(cycle=1;cycle<=8;cycle++){
+int q0=q&1;
+if(q0==1&&q_1==0){
+a=(a-m)&0xFF;
+}else if(q0==0&&q_1==1){
+a=(a+m)&0xFF;
+}
+combined=(a<<9)|(q<<1)|q_1;
+combined=combined>>1;
+if(a&0x80){
+combined=combined|0x10000;
+}
+q_1=combined&1;
+q=(combined>>1)&0xFF;
+a=(combined>>9)&0xFF;
+printf("%-6d|0x%02X |0x%02X |%-4d\n",cycle,a,q,q_1);
+}
+final_combined=(a<<8)|q;
+if(final_combined&0x8000){
+final_combined|=0xFFFF0000;
+}
+printf("\nFinal Decimal Product:%d\n",final_combined);
+getch();
+return 0;
+}
+
+
+
+
+
+Output:
+
+Enter decimal Multiplicand(Signed):12
+Enter decimal(Signed):5                                                         
+                                                                                
+Cycle |A(Hex)  |Q(Hex)  |Q-1                                                    
+------------                                                                    
+  Init|0x00 |0x05 |0                                                            
+1     |0xFA |0x02 |1                                                            
+2     |0x03 |0x01 |0                                                            
+3     |0xFB |0x80 |1                                                            
+4     |0x03 |0xC0 |0                                                            
+5     |0x01 |0xE0 |0                                                            
+6     |0x00 |0xF0 |0                                                            
+7     |0x00 |0x78 |0                                                            
+8     |0x00 |0x3C |0                                                            
+                                                                                
+Final Decimal Product:60                                                        
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+
